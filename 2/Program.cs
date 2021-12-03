@@ -8,6 +8,7 @@ namespace _2
         static void Main(string[] args)
         {
             string[] input = File.ReadAllLines(@"input.txt");
+           
             #region Part One
             int horizontal = 0;
             int vertical = 0;
