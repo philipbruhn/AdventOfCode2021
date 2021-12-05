@@ -11,26 +11,40 @@ namespace _5
         static void Main(string[] args)
         {
             string[] input = File.ReadAllLines(@"input.txt");
-            Dictionary<(int,int),int> oceanFloor = new();
-            CreateOceanFloor();
-            DrawHydroLines(FormatInput(input));
+            #region Part One
+            Dictionary<(int,int),int> oceanFloor = CreateOceanFloor(1000);
+            DrawHydroLines(FormatInput(input), false);
             int overlaps = oceanFloor.Count(a => a.Value > 1);
             Console.WriteLine($"{overlaps}");
+            #endregion
+            #region Part Two
+            oceanFloor = CreateOceanFloor(1000);
+            DrawHydroLines(FormatInput(input), true);
+            overlaps = oceanFloor.Count(a => a.Value > 1);
+            Console.WriteLine($"{overlaps}");
+            #endregion
 
-            void CreateOceanFloor()
+            Dictionary<(int, int), int>CreateOceanFloor(int size)
             {
-                for(int x = 0; x < 1000; x++)
+                Dictionary<(int, int), int> oceanFloor = new();
+                for (int x = 0; x < size; x++)
                 {
-                    for(int y = 0; y < 1000; y++)
+                    for(int y = 0; y < size; y++)
                     {
                         oceanFloor[(x, y)] = 0;
                     }
                 }
+                return oceanFloor;
             }
-            void DrawHydroLines(List<Point[]>lines)
+            void DrawHydroLines(List<Point[]>lines, bool includeDiagonals)
             {
                 foreach(var line in lines)
                 {
+                    //For part One
+                    if(!includeDiagonals && line[0].X != line[1].X && line[0].Y != line[1].Y)
+                    {
+                        continue;
+                    }
                     int[] dir = GetDir(line);
                     bool hasDrawnLine = false;
                     int i = 0; 
