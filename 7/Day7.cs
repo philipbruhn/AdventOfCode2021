@@ -23,9 +23,9 @@ namespace _7
         public static int PartTwo(string input)
         {
             int[] crabPositions = Array.ConvertAll(input.Split(","), s => int.Parse(s));
-            return GetPositionFuel((int)Math.Round(crabPositions.Average()), crabPositions);
+            return GetBestPositionFuel((int)Math.Round(crabPositions.Average()), crabPositions);
         }
-        private static int GetPositionFuel( int tryPosition, int[] crabPositions)
+        private static int GetBestPositionFuel( int tryPosition, int[] crabPositions)
         {
             int[] tryPositions = {tryPosition - 1, tryPosition, tryPosition + 1};
             int[] fuel = new int[3];
@@ -44,7 +44,7 @@ namespace _7
             int bestPosition = Array.IndexOf(fuel, fuel.Min());
             if (bestPosition != 1)
             {
-                fuel[1] = GetPositionFuel(tryPositions[bestPosition], crabPositions);
+                fuel[1] = GetBestPositionFuel(tryPositions[bestPosition], crabPositions);
             }
             return fuel[1]; 
         }
