@@ -38,22 +38,22 @@ namespace _8
         }
         public static Dictionary<string, string> DecypherNumbers(string[] inputLine)
         {
-            List<char[]> c = Array.ConvertAll(inputLine, s => s.ToCharArray()).ToList();
-            foreach (var input in c)
+            List<char[]> inputs = Array.ConvertAll(inputLine, s => s.ToCharArray()).ToList();
+            foreach (var input in inputs)
             {
                 Array.Sort(input);
             }
             Dictionary<string, char[]> segment = new();
-            segment["1"] = c.First(a => a.Length == 2).ToArray();
-            segment["7"] = c.First(a => a.Length == 3).ToArray();
-            segment["4"] = c.First(a => a.Length == 4).ToArray();
-            segment["8"] = c.First(a => a.Length == 7).ToArray();
-            segment["9"] = c.First(a => a.Length == 6 && segment["4"].All(b => a.Contains(b)));
-            segment["0"] = c.First(a => a.Length == 6 && segment["1"].All(b => a.Contains(b)) && a != segment["9"]);
-            segment["6"] = c.First(a => a.Length == 6 && a != segment["0"] && a != segment["9"]);
-            segment["3"] = c.First(a => a.Length == 5 && a.All(a => segment["9"].Contains(a)) && segment["1"].All(b => a.Contains(b)));
-            segment["5"] = c.First(a => a.Length == 5 && a.All(a => segment["9"].Contains(a)) && a.All(a => segment["6"].Contains(a)));
-            segment["2"] = c.First(a => a.Length == 5 && a != segment["3"] && a != segment["5"]);
+            segment["1"] = inputs.First(a => a.Length == 2);
+            segment["7"] = inputs.First(a => a.Length == 3);
+            segment["4"] = inputs.First(a => a.Length == 4);
+            segment["8"] = inputs.First(a => a.Length == 7);
+            segment["9"] = inputs.First(a => a.Length == 6 && segment["4"].All(b => a.Contains(b)));
+            segment["0"] = inputs.First(a => a.Length == 6 && segment["1"].All(b => a.Contains(b)) && a != segment["9"]);
+            segment["6"] = inputs.First(a => a.Length == 6 && a != segment["0"] && a != segment["9"]);
+            segment["3"] = inputs.First(a => a.Length == 5 && a.All(a => segment["9"].Contains(a)) && segment["1"].All(b => a.Contains(b)));
+            segment["5"] = inputs.First(a => a.Length == 5 && a.All(a => segment["9"].Contains(a)) && a.All(a => segment["6"].Contains(a)));
+            segment["2"] = inputs.First(a => a.Length == 5 && a != segment["3"] && a != segment["5"]);
 
             Dictionary<string, string> dictDecypher = segment.ToDictionary(a => new string(a.Value), a => a.Key);
             return dictDecypher;
