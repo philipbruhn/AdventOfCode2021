@@ -84,5 +84,23 @@ namespace AdventOfCode2021.Test
 
             Assert.Equal(expected, actual);
         }
+        [Fact]
+        public void Day10_PartOne()
+        {
+            int expected = 26397;
+
+            int actual = _10.Day10.PartOne(File.ReadAllLines(filepathTest + "Day10.txt"));
+
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void Day10_PartTwo()
+        {
+            long expected = 288957;
+
+            long actual = _10.Day10.PartTwo(File.ReadAllLines(filepathTest + "Day10.txt"));
+
+            Assert.Equal(expected, actual);
+        }
     }
 }
