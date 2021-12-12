@@ -13,7 +13,7 @@ namespace AdventOfCode2021.Test
         static string filepathTest = Environment.CurrentDirectory + "/Inputs/";
 
         [Fact]
-        public void Day1_PartOne()
+        public void Day01_PartOne()
         {
             int expected = 7;
 
@@ -22,7 +22,7 @@ namespace AdventOfCode2021.Test
             Assert.Equal(expected, actual);
         }
         [Fact]
-        public void Day1_PartTwo()
+        public void Day01_PartTwo()
         {
             int expected = 5;
 
@@ -31,7 +31,7 @@ namespace AdventOfCode2021.Test
             Assert.Equal(expected, actual);
         }
         [Fact]
-        public void Day7_PartOne()
+        public void Day07_PartOne()
         {
             int expected = 37;
 
@@ -40,7 +40,7 @@ namespace AdventOfCode2021.Test
             Assert.Equal(expected, actual);
         }
         [Fact]
-        public void Day7_PartTwo()
+        public void Day07_PartTwo()
         {
             int expected = 168;
 
@@ -49,7 +49,7 @@ namespace AdventOfCode2021.Test
             Assert.Equal(expected, actual);
         }
         [Fact]
-        public void Day8_PartOne()
+        public void Day08_PartOne()
         {
             int expected = 26;
 
@@ -58,7 +58,7 @@ namespace AdventOfCode2021.Test
             Assert.Equal(expected, actual);
         }
         [Fact]
-        public void Day8_PartTwo()
+        public void Day08_PartTwo()
         {
             int expected = 61229;
 
@@ -67,7 +67,7 @@ namespace AdventOfCode2021.Test
             Assert.Equal(expected, actual);
         }
         [Fact]
-        public void Day9_PartOne()
+        public void Day09_PartOne()
         {
             int expected = 15;
 
@@ -76,7 +76,7 @@ namespace AdventOfCode2021.Test
             Assert.Equal(expected, actual);
         }
         [Fact]
-        public void Day9_PartTwo()
+        public void Day09_PartTwo()
         {
             int expected = 1134;
 
@@ -117,6 +117,24 @@ namespace AdventOfCode2021.Test
             long expected = 195;
 
             long actual = _11.Day11.PartTwo(File.ReadAllLines(filepathTest + "Day11.txt"));
+
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void Day12_PartOne()
+        {
+            int expected = 226;
+
+            int actual = _12.Day12.PartOne(File.ReadAllLines(filepathTest + "Day12.txt"));
+
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void Day12_PartTwo()
+        {
+            long expected = 3509;
+
+            long actual = _12.Day12.PartTwo(File.ReadAllLines(filepathTest + "Day12.txt"));
 
             Assert.Equal(expected, actual);
         }
