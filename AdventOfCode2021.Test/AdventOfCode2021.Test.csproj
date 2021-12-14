@@ -24,6 +24,7 @@
     <ProjectReference Include="..\11\11.csproj" />
     <ProjectReference Include="..\12\12.csproj" />
     <ProjectReference Include="..\13\13.csproj" />
+    <ProjectReference Include="..\14\14.csproj" />
     <ProjectReference Include="..\1\1.csproj" />
     <ProjectReference Include="..\2\2.csproj" />
     <ProjectReference Include="..\3\3.csproj" />
@@ -37,6 +38,9 @@
 
   <ItemGroup>
     <None Update="Inputs\Day1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Inputs\Day14.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Inputs\Day11.txt">

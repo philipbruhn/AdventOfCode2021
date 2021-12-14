@@ -7,8 +7,8 @@ namespace _13
     {
         static void Main(string[] args)
         {
-            Console.WriteLine($"{Day13.PartOne(File.ReadAllLines("input.txt"))}");
-            Console.WriteLine($"{Day13.PartTwo(File.ReadAllLines("input.txt"))}");
+            Console.WriteLine($"{Day13.PartOne(File.ReadAllLines("input.txt"))}\n");
+            Day13.PartTwo(File.ReadAllLines("input.txt"));
         }
     }
 }

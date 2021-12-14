@@ -30,7 +30,7 @@ namespace _13
             return dots.Count();
         }
 
-        public static int PartTwo(string[] input)
+        public static void PartTwo(string[] input)
         {
             FormatInput(input);
             for (int i = 0; i < fold.Count; i++)
@@ -49,7 +49,6 @@ namespace _13
             {
                 Console.WriteLine(line);
             }
-            return dots.Count();
         }
 
         private static void FormatInput(string[] input)
@@ -130,7 +129,6 @@ namespace _13
                 uiList.Add(line);
             }
             return uiList;
-
         }
 
     }
