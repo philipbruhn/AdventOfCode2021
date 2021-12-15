@@ -26,10 +26,10 @@ namespace _14
             var letters = CreateLettersDict(input);
             foreach (var item in elementsCurrent)
             {
-                letters[item.Key[0]] += item.Value.Amount;
                 letters[item.Key[1]] += item.Value.Amount;
             }
-            return Math.Ceiling(letters.Values.Max() / 2) - Math.Ceiling(letters.Values.Min() / 2);
+            letters[start.First()]++;
+            return letters.Values.Max() - letters.Values.Min();
         }
 
         public static double PartTwo(string[] input)
@@ -48,9 +48,9 @@ namespace _14
             foreach (var item in elementsCurrent)
             {
                     letters[item.Key[0]] += item.Value.Amount;
-                    letters[item.Key[1]] += item.Value.Amount;
             }
-            return Math.Ceiling(letters.Values.Max() / 2) - Math.Ceiling(letters.Values.Min() / 2);
+            letters[start.Last()]++;
+            return letters.Values.Max() - letters.Values.Min();
         }
 
         private static Dictionary<string,Element> CreateElementPairs(string[] input)
@@ -62,7 +62,7 @@ namespace _14
                 elementPairs.Add(pair[0], new Element(0, new List<string>(){
                     pair[0][0] + pair[1],
                     pair[1] + pair[0][1]
-                }));
+                }, pair[1].Last()));
             }
             return elementPairs;
         }

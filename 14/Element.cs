@@ -13,7 +13,13 @@ namespace _14
             Amount = amount;
             Becomes = becomes;
         }
-
+        public Element(double amount, List<string> becomes, char single)
+        {
+            Amount = amount;
+            Single = single;
+            Becomes = becomes;
+        }
+        public char Single { get; set; }
         public double Amount { get; set; }
         public List<string> Becomes { get; set; }
     }

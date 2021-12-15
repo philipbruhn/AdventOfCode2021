@@ -12,7 +12,7 @@ namespace _9
         
         public static int PartOne(string[] input)
         {
-            SetOceanFllor(input);
+            SetOceanFloor(input);
             int riskLevel = 0;
             for (int i = 0; i < input.Length; i++)
             {
@@ -29,7 +29,7 @@ namespace _9
             
         public static int PartTwo(string[] input)
         {
-            SetOceanFllor(input);
+            SetOceanFloor(input);
             List<(int, int)> checkedCoords = new();
             List<int> sizes = new();
             foreach(var coord in oceanFloor.Keys)
@@ -81,7 +81,7 @@ namespace _9
             return basin;
         }
 
-        private static void SetOceanFllor(string[] input)
+        private static void SetOceanFloor(string[] input)
         {
             if(oceanFloor.Count == 0)
             {
