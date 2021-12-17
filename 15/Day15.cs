@@ -38,10 +38,10 @@ namespace _15
                         {
                             if (cave.TryGetValue((i + x, j + y), out (int risk, int riskSoFar) neighbour))
                             {
-                                int cost = cave[(i, j)].riskSoFar + neighbour.risk;
-                                if (neighbour.riskSoFar > cost)
+                                int riskSoFar = cave[(i, j)].riskSoFar + neighbour.risk;
+                                if (neighbour.riskSoFar > riskSoFar)
                                 {
-                                    cave[(i + x, j + y)] = (neighbour.risk, cost);
+                                    cave[(i + x, j + y)] = (neighbour.risk, riskSoFar);
                                     hasChanged = true;
                                 }
                             }
@@ -71,7 +71,7 @@ namespace _15
         private static Dictionary<(int x, int y), (int risk, int cost)> GetBigCave(string[] input)
         {
             Dictionary<(int x, int y), (int risk, int cost)> smallCave = GetSmallCave(input);
-            (int x, int y) smallMax = smallCave.Keys.Max();
+            (int x, int y) = smallCave.Keys.Max();
             Dictionary<(int x, int y), (int risk, int cost)> bigCave = new();
             foreach (var position in smallCave)
             {
@@ -84,7 +84,7 @@ namespace _15
                         {
                             risk -= 9;
                         }
-                        bigCave.Add((position.Key.x + (i * (smallMax.x + 1)), position.Key.y + (j * (smallMax.x + 1))), (risk, position.Value.cost));
+                        bigCave.Add((position.Key.x + (i * (x + 1)), position.Key.y + (j * (y + 1))), (risk, position.Value.cost));
                     }
                 }
             }
